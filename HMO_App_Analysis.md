@@ -1,6 +1,6 @@
-# Atmosyn App - Technical Analysis Report
+# HMObservetory App - Technical Analysis Report
 
-**Project Name:** Atmosyn (Meteoflow)  
+**Project Name:** HMObservetory
 **Platform:** Flutter Cross-Platform Application  
 **Version:** 1.0.0+1  
 **Last Updated:** February 2026  
@@ -26,7 +26,7 @@
 
 ## 1. Executive Summary
 
-**Atmosyn** is a Flutter-based mobile and web application designed for collecting and managing meteorological and hydrological data in Nepal. The application serves as a data collection tool for field workers (collectors) to record rainfall measurements and spring/stream discharge data, with real-time synchronization to Firebase Firestore.
+**HMObservetory** is a Flutter-based mobile and web application designed for collecting and managing meteorological and hydrological data in Nepal. The application serves as a data collection tool for field workers (collectors) to record rainfall measurements and spring/stream discharge data, with real-time synchronization to Firebase Firestore.
 
 ### Key Highlights:
 - **Purpose:** Hydrometeorological data collection for Nepal
@@ -127,7 +127,7 @@ The application follows a **simple layered architecture**:
 ## 4. Project Structure
 
 ```
-Atmosyn_App/Meteoflow/Meteoflow/lib/
+HMObservetory/HMObservetory/lib/
 │
 ├── main.dart                          # Application entry point
 ├── firebase_options.dart              # Firebase configuration
