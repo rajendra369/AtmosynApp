@@ -1,6 +1,6 @@
-# Atmosyn – Atmospheric Synthesis
+# HMObservetory – Hydrological & Meteorological Observatory
 
-Official Git Repository for the Atmosyn ecosystem. This repository represents the **Restored V1 Core** as of February 2026.
+Official Git Repository for the HMObservetory ecosystem. This repository represents the **Restored V1 Core** as of February 2026.
 
 **Author:** Engineer, Rajendra Kr. Shrestha
 
@@ -8,7 +8,7 @@ Official Git Repository for the Atmosyn ecosystem. This repository represents th
 
 ## 🚀 Project Overview
 
-Atmosyn is a professional Dart/Flutter-mobile application designed for meteorological research and high-accuracy data collection. 
+HMObservetory is a professional Dart/Flutter-mobile application designed for meteorological research and high-accuracy data collection. 
 
 This version restores the critical "Data Collector" and "Station Management" logic, ensuring geographical accuracy and standardized reporting for hydrological and meteorological analysis.
 
@@ -22,7 +22,7 @@ This version restores the critical "Data Collector" and "Station Management" log
 
 ## 📂 Repository Structure
 
-- **[Meteoflow/Meteoflow/](./Meteoflow/Meteoflow/)**: The active Flutter project.
+- **[HMObservetory/HMObservetory/](./HMObservetory/HMObservetory/)**: The active Flutter project.
 - **[TASKS.md](./TASKS.md)**: Full restoration history and task checklist.
 
 ---
@@ -30,7 +30,7 @@ This version restores the critical "Data Collector" and "Station Management" log
 ## 🛠️ Usage Instructions
 
 ### Run the App
-1. Enter the project directory: `cd Meteoflow/Meteoflow`
+1. Enter the project directory: `cd HMObservetory/HMObservetory`
 2. Fetch dependencies: `flutter pub get`
 3. Launch on device: `flutter run`
 
