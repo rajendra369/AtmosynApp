@@ -15,6 +15,7 @@ import 'features/dashboard/presentation/bloc/records_event.dart';
 import 'features/dashboard/data/datasources/firestore_service.dart';
 import 'features/dashboard/presentation/bloc/collectors_bloc.dart';
 import 'features/dashboard/presentation/bloc/collectors_event.dart';
+import 'core/theme/hmo_theme.dart';
 import 'features/settings/presentation/bloc/import_bloc.dart';
 import 'features/settings/data/datasources/data_import_service.dart';
 
@@ -57,12 +58,11 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Meteoflow',
+        title: 'HMO App',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          useMaterial3: true,
-        ),
+        theme: HMOTheme.lightTheme,
+        darkTheme: HMOTheme.darkTheme,
+        themeMode: ThemeMode.system,
         home: const LoginScreen(),
       ),
     );

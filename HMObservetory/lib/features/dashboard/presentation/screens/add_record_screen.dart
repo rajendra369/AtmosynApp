@@ -153,7 +153,7 @@ class _AddRecordScreenState extends State<AddRecordScreen> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         DropdownButtonFormField<String>(
-                          value: _selectedCollectorId,
+                          initialValue: _selectedCollectorId,
                           items: collectors
                               .map(
                                 (c) => DropdownMenuItem(
@@ -216,7 +216,7 @@ class _AddRecordScreenState extends State<AddRecordScreen> {
                               ),
                             ),
                           DropdownButtonFormField<String>(
-                            value: _selectedRainStation,
+                            initialValue: _selectedRainStation,
                             items: _currentRainStations
                                 .map(
                                   (s) => DropdownMenuItem(
@@ -256,7 +256,7 @@ class _AddRecordScreenState extends State<AddRecordScreen> {
                               ),
                             ),
                           DropdownButtonFormField<String>(
-                            value: _selectedFlowStation,
+                            initialValue: _selectedFlowStation,
                             items: _currentFlowStations
                                 .map(
                                   (s) => DropdownMenuItem(

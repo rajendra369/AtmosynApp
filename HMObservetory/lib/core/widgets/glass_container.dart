@@ -18,8 +18,8 @@ class GlassContainer extends StatelessWidget {
     this.width,
     this.height,
     this.child,
-    this.blur = 15.0,
-    this.opacity = 0.2,
+    this.blur = 20.0,
+    this.opacity = 0.15,
     this.color = Colors.white,
     this.borderRadius,
     this.padding,
@@ -34,17 +34,17 @@ class GlassContainer extends StatelessWidget {
       height: height,
       margin: margin,
       child: ClipRRect(
-        borderRadius: borderRadius ?? BorderRadius.circular(20),
+        borderRadius: borderRadius ?? BorderRadius.circular(24),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
           child: Container(
             padding: padding,
             decoration: BoxDecoration(
               color: color.withValues(alpha: opacity),
-              borderRadius: borderRadius ?? BorderRadius.circular(20),
+              borderRadius: borderRadius ?? BorderRadius.circular(24),
               border:
                   border ??
-                  Border.all(color: Colors.white.withValues(alpha: 0.2)),
+                  Border.all(color: Colors.white.withValues(alpha: 0.15)),
             ),
             child: child,
           ),

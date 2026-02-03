@@ -188,7 +188,7 @@ class _ViewDataScreenState extends State<ViewDataScreen> {
                         ),
                         const SizedBox(height: 8),
                         DropdownButtonFormField<String>(
-                          value: _selectedStation,
+                          initialValue: _selectedStation,
                           decoration: const InputDecoration(
                             labelText: 'Filter by Station',
                             contentPadding: EdgeInsets.symmetric(

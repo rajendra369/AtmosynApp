@@ -25,29 +25,14 @@ class _LoginScreenState extends State<LoginScreen>
   final TextEditingController _passwordController = TextEditingController();
   bool _passwordVisible = false;
 
-  // Animation controllers
-  late AnimationController _waveController;
-  late AnimationController _dropController;
-
   @override
   void initState() {
     super.initState();
-    _waveController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 3),
-    )..repeat();
-
-    _dropController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    )..repeat();
   }
 
   @override
   void dispose() {
     _passwordController.dispose();
-    _waveController.dispose();
-    _dropController.dispose();
     super.dispose();
   }
 
@@ -96,40 +81,20 @@ class _LoginScreenState extends State<LoginScreen>
         return Scaffold(
           body: Stack(
             children: [
-              // Background gradient
+              // Background themed gradient
               Container(
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                     colors: [
-                      Color(0xFF1A237E), // Deep blue
-                      Color(0xFF0D47A1), // Blue
-                      Color(0xFF01579B), // Light blue
-                      Color(0xFF006064), // Teal
+                      Color(0xFF006064), // Deep Teal
+                      Color(0xFF00838F), // Cyan
+                      Color(0xFF0097A7), // Light Cyan
                     ],
                   ),
                 ),
               ),
-
-              // Animated water waves at bottom
-              Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: AnimatedBuilder(
-                  animation: _waveController,
-                  builder: (context, child) {
-                    return CustomPaint(
-                      size: Size(MediaQuery.of(context).size.width, 200),
-                      painter: WavePainter(_waveController.value),
-                    );
-                  },
-                ),
-              ),
-
-              // Rain drops animation
-              ...List.generate(15, (index) => _buildRainDrop(index)),
 
               // Main content
               SafeArea(
@@ -170,89 +135,59 @@ class _LoginScreenState extends State<LoginScreen>
     );
   }
 
-  Widget _buildRainDrop(int index) {
-    final random = Random(index);
-    final startX = random.nextDouble() * 400;
-    final delay = random.nextDouble();
-
-    return AnimatedBuilder(
-      animation: _dropController,
-      builder: (context, child) {
-        final progress = (_dropController.value + delay) % 1.0;
-        return Positioned(
-          left: startX,
-          top: progress * MediaQuery.of(context).size.height * 0.7,
-          child: Opacity(
-            opacity: 0.3 + (random.nextDouble() * 0.3),
-            child: Container(
-              width: 2,
-              height: 15 + random.nextDouble() * 10,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.white.withValues(alpha: 0.0),
-                    Colors.white.withValues(alpha: 0.6),
-                    Colors.cyan.withValues(alpha: 0.3),
-                  ],
-                ),
-                borderRadius: BorderRadius.circular(2),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
-
   Widget _buildHeader() {
     return Column(
       children: [
-        // Animated water drop icon
+        // Themed Logo from Assets
         Container(
-          padding: const EdgeInsets.all(20),
+          height: 200,
+          width: 200,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.white.withValues(alpha: 0.15),
-            border: Border.all(color: Colors.white30, width: 2),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.1),
+                blurRadius: 20,
+                spreadRadius: 5,
+              ),
+            ],
           ),
-          child: const Icon(Icons.water_drop, size: 50, color: Colors.white),
+          child: Image.asset('assets/images/hmo_logo.png', fit: BoxFit.contain),
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 24),
         const Text(
-          'HMO APP',
+          'HMO App',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 36,
+            fontSize: 42,
             fontWeight: FontWeight.bold,
-            letterSpacing: 6,
-          ),
-        ),
-        const SizedBox(height: 4),
-        Text(
-          'Hydrological Monitoring System',
-          style: TextStyle(
-            color: Colors.white.withValues(alpha: 0.8),
-            fontSize: 14,
-            letterSpacing: 1,
+            letterSpacing: 4,
           ),
         ),
         const SizedBox(height: 8),
+        Text(
+          'Hydrological Monitoring System',
+          style: TextStyle(
+            color: Colors.white.withValues(alpha: 0.9),
+            fontSize: 16,
+            letterSpacing: 1.2,
+          ),
+        ),
+        const SizedBox(height: 16),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
           decoration: BoxDecoration(
-            color: Colors.cyan.withValues(alpha: 0.3),
-            borderRadius: BorderRadius.circular(20),
+            color: Colors.white.withValues(alpha: 0.2),
+            borderRadius: BorderRadius.circular(30),
           ),
           child: const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(Icons.location_on, color: Colors.white70, size: 14),
-              SizedBox(width: 4),
+              Icon(Icons.location_on, color: Colors.white, size: 16),
+              SizedBox(width: 6),
               Text(
                 'Sindhuli District, Nepal',
-                style: TextStyle(color: Colors.white70, fontSize: 12),
+                style: TextStyle(color: Colors.white, fontSize: 13),
               ),
             ],
           ),
